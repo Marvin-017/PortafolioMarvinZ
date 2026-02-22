@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- Mi primera página html del curso -->
 <html>
+<<<<<<< Updated upstream
   <head>
     <title>TechShop</title>
     <meta charset="UTF-8"/>
@@ -25,3 +26,17 @@
     </footer>
   </body>
 </html>
+=======
+    <head th:replace="~{general/fragmentos :: head}"/>
+
+    <body>
+        <header th:replace="~{general/fragmentos :: header}"/>
+
+        <section th:replace="~{consultas/fragmentos :: tabs}"/>
+        <section th:replace="~{consultas/fragmentos :: tarjetas}"/>
+
+        <footer th:replace="~{general/fragmentos :: footer}"/>
+    </body>
+</html>
+ 
+>>>>>>> Stashed changes
