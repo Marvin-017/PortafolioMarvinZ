@@ -1,11 +1,20 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Tienda_MarvinZ;
 
-
+import java.util.Locale;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
@@ -34,9 +43,6 @@ public class ProjectConfig implements WebMvcConfigurer {
         resolver.setCheckExistence(true);
         return resolver;
     }
-<<<<<<< Updated upstream
-}
-=======
 
     @Bean
     public LocaleResolver localeResolver() {
@@ -69,4 +75,3 @@ public class ProjectConfig implements WebMvcConfigurer {
     
     
 }
->>>>>>> Stashed changes
