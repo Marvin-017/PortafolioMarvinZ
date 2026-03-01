@@ -85,4 +85,52 @@ nav {
 
 
 
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: 1;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
+@media print {
+    /* 1. Limpiar el diseño de la web (Header, Sidebar, Footer) */
+    header, aside, footer, .d-print-none {
+        display: none !important;
+    }
+
+    /* 2. Reset total de la estructura de la página */
+    body {
+        background-color: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 3. Estirar la sección (eliminando el left: 20% y width: 80%) */
+    section {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        top: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 4. ¡OJO AQUÍ! Anulamos el style="max-width: 900px" */
+    .container, 
+    .card[style*="max-width: 900px"] {
+        max-width: 100% !important; 
+        width: 100% !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* 5. Asegurar que la tabla ocupe todo el ancho */
+    .table-responsive, table {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}

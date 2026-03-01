@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<body>
+
+    <!-- ✅ Listado de Roles -->
+    <section th:fragment="listado" class="p-3">
+        <div class="row p-3">
+            <div class="col-md-9">
+                <div class="card p-2">
+                    <div class="card-header">
+                        <h4>Listado de Roles</h4>
+                    </div>
+
+                    <div class="card-body">
+                        <div th:if="${roles != null and !roles.empty}">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre del Rol</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="r : ${roles}">
+                                        <td>[[${r.idRol}]]</td>
+                                        <td>[[${r.rol}]]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="text-center p-2"
+                             th:if="${roles == null or roles.empty}">
+                            <span>No hay roles registrados.</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total de Roles -->
+            <div class="col-md-3">
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3>Total Roles</h3>
+                        <h4 class="fs-2">
+                            [[${totalRoles}]]
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
