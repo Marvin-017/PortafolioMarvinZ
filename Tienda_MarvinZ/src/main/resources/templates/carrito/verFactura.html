@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Factura #<span th:text="${factura.idFactura}"></span></title>
+    <link href="/webjars/bootstrap/5.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    
+    <style>
+        /* Estilos solo para el papel */
+        @media print {
+            /* 1. Forzamos que el fondo sea blanco y sin márgenes locos */
+            body {
+                background-color: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* 2. Rompemos el límite del 'container' de Bootstrap */
+            .container {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* 3. Rompemos el límite de los 900px que tiene la Card */
+            .card {
+                max-width: 100% !important;
+                width: 100% !important;
+                border: none !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+            }
+
+            /* 4. Quitamos los botones y cosas que no queremos imprimir */
+            .d-print-none, .btn, footer, header, aside {
+                display: none !important;
+            }
+
+            /* 5. Aseguramos que la tabla use todo el ancho de la hoja */
+            .table-responsive, table {
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            /* Ajuste de márgenes de la hoja */
+            @page {
+                margin: 1cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="invoice-print-area">
+        <div th:replace="~{carrito/fragmentos :: detalleFactura}"/>
+    </section>
+</body>
+</html>
